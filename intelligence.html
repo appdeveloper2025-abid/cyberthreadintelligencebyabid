@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence - Cyber Threat Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo">
+                <h1>🛡️ Cyber Threat Intelligence</h1>
+                <p>Real-time global threat visualization</p>
+            </div>
+
+        </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Dashboard</a></li>
+                <li><a href="threats.html">🚨 Threats</a></li>
+                <li><a href="analytics.html">📊 Analytics</a></li>
+                <li><a href="reports.html">📋 Reports</a></li>
+                <li><a href="alerts.html">🔔 Alerts</a></li>
+                <li><a href="intelligence.html" class="active">🧠 Intelligence</a></li>
+                <li><a href="tools.html">🔧 Tools</a></li>
+                <li><a href="education.html">📚 Education</a></li>
+                <li><a href="api.html">🔌 API</a></li>
+                <li><a href="settings.html">⚙️ Settings</a></li>
+                <li><a href="about.html">ℹ️ About</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>🧠 Threat Intelligence Hub by Abid Mehmod</h1>
+            <p>Advanced threat intelligence and IOC management developed by Abid Mehmod</p>
+        </section>
+
+        <section class="intelligence-feeds">
+            <h2>📡 Intelligence Feeds</h2>
+            <div class="feeds-grid">
+                <div class="feed-card">
+                    <h3>🔴 Critical IOCs</h3>
+                    <div class="feed-stats">
+                        <span>1,234 indicators</span>
+                        <span class="updated">Updated 5 min ago</span>
+                    </div>
+                    <p>High-confidence indicators of compromise from trusted sources</p>
+                </div>
+                <div class="feed-card">
+                    <h3>🌐 Domain Intelligence</h3>
+                    <div class="feed-stats">
+                        <span>5,678 domains</span>
+                        <span class="updated">Updated 12 min ago</span>
+                    </div>
+                    <p>Malicious and suspicious domain registrations</p>
+                </div>
+                <div class="feed-card">
+                    <h3>📧 Email Threats</h3>
+                    <div class="feed-stats">
+                        <span>892 campaigns</span>
+                        <span class="updated">Updated 8 min ago</span>
+                    </div>
+                    <p>Active phishing and malspam campaigns</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ioc-search">
+            <h2>🔍 IOC Lookup by Abid Mehmod</h2>
+            <div class="search-container">
+                <input type="text" placeholder="Enter IP, domain, hash, or URL..." id="iocInput">
+                <button class="btn-search" onclick="searchIOC()">🔍 Search</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="result-item">
+                    <h4>Sample: 192.168.1.100</h4>
+                    <p><strong>Status:</strong> Malicious | <strong>Confidence:</strong> High</p>
+                    <p><strong>Tags:</strong> Botnet, C2 Server, APT28</p>
+                    <p><strong>Analyzed by:</strong> Abid Mehmod Security System</p>
+                </div>
+            </div>
+        </section>
+
+    <script>
+        function searchIOC() {
+            const input = document.getElementById('iocInput').value.trim();
+            if (!input) { alert('Please enter an IOC'); return; }
+            
+            const results = document.getElementById('searchResults');
+            const isMalicious = Math.random() > 0.4;
+            
+            results.innerHTML = `
+                <div class="result-item">
+                    <h4>${input}</h4>
+                    <p><strong>Status:</strong> ${isMalicious ? 'Malicious' : 'Clean'} | <strong>Confidence:</strong> ${Math.random() > 0.5 ? 'High' : 'Medium'}</p>
+                    <p><strong>Tags:</strong> ${isMalicious ? 'Suspicious, Malware' : 'Clean, Verified'}</p>
+                    <p><strong>Analyzed by:</strong> Abid Mehmod Threat Intelligence</p>
+                    <p><strong>Last Updated:</strong> ${new Date().toLocaleDateString()}</p>
+                </div>
+            `;
+        }
+    </script>
+
+        <section class="threat-actors">
+            <h2>👥 Known Threat Actors</h2>
+            <div class="actors-grid">
+                <div class="actor-card">
+                    <h3>APT28 (Fancy Bear)</h3>
+                    <p><strong>Origin:</strong> Russia</p>
+                    <p><strong>Targets:</strong> Government, Military</p>
+                    <p><strong>Active Since:</strong> 2007</p>
+                </div>
+                <div class="actor-card">
+                    <h3>Lazarus Group</h3>
+                    <p><strong>Origin:</strong> North Korea</p>
+                    <p><strong>Targets:</strong> Financial, Cryptocurrency</p>
+                    <p><strong>Active Since:</strong> 2009</p>
+                </div>
+                <div class="actor-card">
+                    <h3>APT1 (Comment Crew)</h3>
+                    <p><strong>Origin:</strong> China</p>
+                    <p><strong>Targets:</strong> Intellectual Property</p>
+                    <p><strong>Active Since:</strong> 2006</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ Cyber Threat Intelligence</h3>
+                <p>Advanced threat visualization and analysis platform for cybersecurity professionals.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Contact</h3>
+                <p><strong>Abid Mehmod</strong></p>
+                <p>Phone: 03029382306</p>
+                <p>Email: abidbusiness2025@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="threats.html">Threat Analysis</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="api.html">API Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cyber Threat Intelligence Visualizer by Abid Mehmod | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

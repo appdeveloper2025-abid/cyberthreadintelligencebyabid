@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Threat Intelligence Visualizer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo">
+                <h1>🛡️ Cyber Threat Intelligence</h1>
+                <p>Real-time global threat visualization</p>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">🏠 Dashboard</a></li>
+                <li><a href="threats.html">🚨 Threats</a></li>
+                <li><a href="analytics.html">📊 Analytics</a></li>
+                <li><a href="reports.html">📋 Reports</a></li>
+                <li><a href="alerts.html">🔔 Alerts</a></li>
+                <li><a href="intelligence.html">🧠 Intelligence</a></li>
+                <li><a href="tools.html">🔧 Tools</a></li>
+                <li><a href="education.html">📚 Education</a></li>
+                <li><a href="api.html">🔌 API</a></li>
+                <li><a href="settings.html">⚙️ Settings</a></li>
+                <li><a href="about.html">ℹ️ About</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="controls">
+            <div class="control-group">
+                <button id="refreshData">🔄 Refresh Data</button>
+                <button id="startLiveFeed">▶️ Start Live Feed</button>
+                <button id="exportData">💾 Export Data</button>
+                <button id="toggleSound">🔊 Sound: ON</button>
+            </div>
+            <div class="filters">
+                <select id="severityFilter">
+                    <option value="all">All Severities</option>
+                    <option value="Critical">Critical</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <select id="typeFilter">
+                    <option value="all">All Types</option>
+                    <option value="Malware">Malware</option>
+                    <option value="Phishing">Phishing</option>
+                    <option value="DDoS">DDoS</option>
+                    <option value="Botnet">Botnet</option>
+                    <option value="Ransomware">Ransomware</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="🔍 Search IP or Country...">
+            </div>
+            <div class="status" id="status">Ready</div>
+        </section>
+
+        <section class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number" id="totalThreats">0</span>
+                <span class="stat-label">Total Threats</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="criticalThreats">0</span>
+                <span class="stat-label">Critical</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="countriesAffected">0</span>
+                <span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="lastUpdate">--:--</span>
+                <span class="stat-label">Last Update</span>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            <div class="map-container">
+                <h2>🌍 Global Threat Map - Powered by Abid Mehmod</h2>
+                <div id="map"></div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>📊 Threat Types</h3>
+                    <canvas id="threatTypesChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>⚠️ Severity Levels</h3>
+                    <canvas id="severityChart"></canvas>
+                </div>
+                <div class="chart-box timeline-box">
+                    <h3>⏱️ Threat Timeline</h3>
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="threat-feed">
+            <h2>🚨 Live Threat Feed - Monitored by Abid Mehmod</h2>
+            <div id="threatList" class="threat-list"></div>
+        </section>
+
+        <section class="glossary">
+            <h2>📚 Cyber Attack Glossary by Abid Mehmod</h2>
+            <div class="glossary-grid">
+                <div class="glossary-item">
+                    <h4>Malware</h4>
+                    <p>Malicious software designed to damage or gain unauthorized access to systems</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>Phishing</h4>
+                    <p>Fraudulent attempts to obtain sensitive information by disguising as trustworthy entities</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>DDoS</h4>
+                    <p>Distributed Denial of Service attacks that overwhelm systems with traffic</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>Botnet</h4>
+                    <p>Network of compromised computers controlled remotely by cybercriminals</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>Ransomware</h4>
+                    <p>Malware that encrypts files and demands payment for decryption</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>SQL Injection</h4>
+                    <p>Code injection technique that exploits vulnerabilities in database queries</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>Brute Force</h4>
+                    <p>Attack method that tries multiple password combinations to gain access</p>
+                </div>
+                <div class="glossary-item">
+                    <h4>Zero-Day</h4>
+                    <p>Exploits that target previously unknown software vulnerabilities</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ Cyber Threat Intelligence</h3>
+                <p>Advanced threat visualization and analysis platform for cybersecurity professionals.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Contact</h3>
+                <p><strong>Abid Mehmod</strong></p>
+                <p>Phone: 03029382306</p>
+                <p>Email: abidbusiness2025@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="threats.html">Threat Analysis</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="api.html">API Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cyber Threat Intelligence Visualizer by Abid Mehmod | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

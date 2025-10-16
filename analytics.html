@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Cyber Threat Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo">
+                <h1>🛡️ Cyber Threat Intelligence</h1>
+                <p>Real-time global threat visualization</p>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Dashboard</a></li>
+                <li><a href="threats.html">🚨 Threats</a></li>
+                <li><a href="analytics.html" class="active">📊 Analytics</a></li>
+                <li><a href="reports.html">📋 Reports</a></li>
+                <li><a href="alerts.html">🔔 Alerts</a></li>
+                <li><a href="intelligence.html">🧠 Intelligence</a></li>
+                <li><a href="tools.html">🔧 Tools</a></li>
+                <li><a href="education.html">📚 Education</a></li>
+                <li><a href="api.html">🔌 API</a></li>
+                <li><a href="settings.html">⚙️ Settings</a></li>
+                <li><a href="about.html">ℹ️ About</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>📊 Threat Analytics Dashboard</h1>
+            <p>Advanced analytics and insights into cyber threat patterns</p>
+        </section>
+
+        <section class="analytics-grid">
+            <div class="analytics-card">
+                <h3>📈 Threat Trends</h3>
+                <canvas id="trendChart"></canvas>
+            </div>
+            <div class="analytics-card">
+                <h3>🌍 Geographic Distribution</h3>
+                <canvas id="geoChart"></canvas>
+            </div>
+            <div class="analytics-card">
+                <h3>⏰ Attack Patterns</h3>
+                <canvas id="timeChart"></canvas>
+            </div>
+            <div class="analytics-card">
+                <h3>🎯 Target Industries</h3>
+                <canvas id="industryChart"></canvas>
+            </div>
+        </section>
+
+        <section class="insights">
+            <h2>🔍 Key Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h4>📈 Trend Analysis</h4>
+                    <p>Ransomware attacks increased by 45% this month, primarily targeting healthcare and financial sectors.</p>
+                </div>
+                <div class="insight-card">
+                    <h4>🌐 Geographic Hotspots</h4>
+                    <p>Eastern Europe shows highest threat activity with 34% of all detected malicious activities.</p>
+                </div>
+                <div class="insight-card">
+                    <h4>⚡ Attack Vectors</h4>
+                    <p>Email-based attacks remain the primary vector, accounting for 67% of successful breaches.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ Cyber Threat Intelligence</h3>
+                <p>Advanced threat visualization and analysis platform for cybersecurity professionals.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Contact</h3>
+                <p><strong>Abid Mehmod</strong></p>
+                <p>Phone: 03029382306</p>
+                <p>Email: abidbusiness2025@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="threats.html">Threat Analysis</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="api.html">API Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cyber Threat Intelligence Visualizer by Abid Mehmod | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize analytics charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trend Chart
+            new Chart(document.getElementById('trendChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Threats Detected',
+                        data: [120, 190, 300, 500, 200, 300],
+                        borderColor: '#00ff88',
+                        backgroundColor: 'rgba(0, 255, 136, 0.1)'
+                    }]
+                },
+                options: { responsive: true, plugins: { legend: { labels: { color: '#e0e0e0' } } } }
+            });
+
+            // Geographic Chart
+            new Chart(document.getElementById('geoChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['North America', 'Europe', 'Asia', 'Others'],
+                    datasets: [{
+                        data: [30, 40, 20, 10],
+                        backgroundColor: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#feca57']
+                    }]
+                },
+                options: { responsive: true, plugins: { legend: { labels: { color: '#e0e0e0' } } } }
+            });
+        });
+    </script>
+</body>
+</html>

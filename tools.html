@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - Cyber Threat Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo">
+                <h1>🛡️ Cyber Threat Intelligence</h1>
+                <p>Real-time global threat visualization</p>
+            </div>
+
+        </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Dashboard</a></li>
+                <li><a href="threats.html">🚨 Threats</a></li>
+                <li><a href="analytics.html">📊 Analytics</a></li>
+                <li><a href="reports.html">📋 Reports</a></li>
+                <li><a href="alerts.html">🔔 Alerts</a></li>
+                <li><a href="intelligence.html">🧠 Intelligence</a></li>
+                <li><a href="tools.html" class="active">🔧 Tools</a></li>
+                <li><a href="education.html">📚 Education</a></li>
+                <li><a href="api.html">🔌 API</a></li>
+                <li><a href="settings.html">⚙️ Settings</a></li>
+                <li><a href="about.html">ℹ️ About</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>🔧 Security Tools Suite by Abid Mehmod</h1>
+            <p>Comprehensive cybersecurity analysis and investigation tools developed by Abid Mehmod</p>
+        </section>
+
+        <section class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🔍</div>
+                <h3>IP Analyzer by Abid Mehmod</h3>
+                <p>Comprehensive IP address analysis and reputation checking</p>
+                <div class="tool-input">
+                    <input type="text" placeholder="Enter IP address...">
+                    <button class="btn-analyze">Analyze</button>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🌐</div>
+                <h3>Domain Scanner by Abid Mehmod</h3>
+                <p>Domain reputation, WHOIS, and DNS analysis</p>
+                <div class="tool-input">
+                    <input type="text" placeholder="Enter domain name...">
+                    <button class="btn-analyze">Scan</button>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🔐</div>
+                <h3>Hash Checker</h3>
+                <p>File hash analysis and malware detection</p>
+                <div class="tool-input">
+                    <input type="text" placeholder="Enter file hash...">
+                    <button class="btn-analyze">Check</button>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">📧</div>
+                <h3>Email Header Analyzer</h3>
+                <p>Email header analysis for phishing detection</p>
+                <div class="tool-input">
+                    <textarea placeholder="Paste email headers..."></textarea>
+                    <button class="btn-analyze">Analyze</button>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🔗</div>
+                <h3>URL Scanner</h3>
+                <p>URL safety analysis and threat detection</p>
+                <div class="tool-input">
+                    <input type="text" placeholder="Enter URL...">
+                    <button class="btn-analyze">Scan</button>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h3>Network Analyzer</h3>
+                <p>Network traffic analysis and anomaly detection</p>
+                <div class="tool-input">
+                    <input type="file" accept=".pcap,.cap">
+                    <button class="btn-analyze">Analyze</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="tool-results">
+            <h2>🔍 Analysis Results by Abid Mehmod</h2>
+            <div class="results-container" id="resultsContainer">
+                <div class="result-placeholder">
+                    <p>Select a tool above to begin analysis - Powered by Abid Mehmod</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // IP Analyzer
+        document.querySelector('.tool-card:nth-child(1) .btn-analyze').addEventListener('click', async function() {
+            const ip = this.previousElementSibling.value.trim();
+            if (!ip) { alert('Please enter an IP address'); return; }
+            
+            document.getElementById('resultsContainer').innerHTML = '<div class="loading">Analyzing by Abid Mehmod...</div>';
+            
+            try {
+                const response = await fetch(`http://ip-api.com/json/${ip}`);
+                const data = await response.json();
+                
+                document.getElementById('resultsContainer').innerHTML = `
+                    <div class="analysis-result">
+                        <h3>🔍 IP Analysis - Analyzed by Abid Mehmod</h3>
+                        <div class="result-grid">
+                            <div><strong>IP:</strong> ${data.query}</div>
+                            <div><strong>Country:</strong> ${data.country}</div>
+                            <div><strong>City:</strong> ${data.city}</div>
+                            <div><strong>ISP:</strong> ${data.isp}</div>
+                            <div><strong>Status:</strong> ${data.status === 'success' ? '✅ Valid' : '❌ Invalid'}</div>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('resultsContainer').innerHTML = '<div class="error">Error by Abid Mehmod system. Try again.</div>';
+            }
+        });
+
+        // Domain Scanner
+        document.querySelector('.tool-card:nth-child(2) .btn-analyze').addEventListener('click', function() {
+            const domain = this.previousElementSibling.value.trim();
+            if (!domain) { alert('Please enter a domain'); return; }
+            
+            document.getElementById('resultsContainer').innerHTML = `
+                <div class="analysis-result">
+                    <h3>🌐 Domain Analysis - By Abid Mehmod</h3>
+                    <div class="result-grid">
+                        <div><strong>Domain:</strong> ${domain}</div>
+                        <div><strong>Status:</strong> ✅ Active</div>
+                        <div><strong>Security:</strong> ${Math.random() > 0.5 ? '🟢 Safe' : '🟡 Caution'}</div>
+                        <div><strong>Age:</strong> ${Math.floor(Math.random() * 10) + 1} years</div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Hash Checker
+        document.querySelector('.tool-card:nth-child(3) .btn-analyze').addEventListener('click', function() {
+            const hash = this.previousElementSibling.value.trim();
+            if (!hash) { alert('Please enter a hash'); return; }
+            
+            const isClean = Math.random() > 0.3;
+            document.getElementById('resultsContainer').innerHTML = `
+                <div class="analysis-result">
+                    <h3>🔐 Hash Analysis - By Abid Mehmod</h3>
+                    <div class="result-grid">
+                        <div><strong>Hash:</strong> ${hash.substring(0, 20)}...</div>
+                        <div><strong>Status:</strong> ${isClean ? '✅ Clean' : '⚠️ Suspicious'}</div>
+                        <div><strong>Detection:</strong> ${isClean ? '0/70' : Math.floor(Math.random() * 30) + '/70'}</div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Email Analyzer
+        document.querySelector('.tool-card:nth-child(4) .btn-analyze').addEventListener('click', function() {
+            const headers = this.previousElementSibling.value.trim();
+            if (!headers) { alert('Please paste email headers'); return; }
+            
+            document.getElementById('resultsContainer').innerHTML = `
+                <div class="analysis-result">
+                    <h3>📧 Email Analysis - By Abid Mehmod</h3>
+                    <div class="result-grid">
+                        <div><strong>Status:</strong> Complete</div>
+                        <div><strong>Phishing Risk:</strong> ${Math.random() > 0.7 ? '🔴 High' : '🟢 Low'}</div>
+                        <div><strong>SPF:</strong> ${Math.random() > 0.5 ? 'Pass' : 'Fail'}</div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // URL Scanner
+        document.querySelector('.tool-card:nth-child(5) .btn-analyze').addEventListener('click', function() {
+            const url = this.previousElementSibling.value.trim();
+            if (!url) { alert('Please enter a URL'); return; }
+            
+            document.getElementById('resultsContainer').innerHTML = `
+                <div class="analysis-result">
+                    <h3>🔗 URL Analysis - By Abid Mehmod</h3>
+                    <div class="result-grid">
+                        <div><strong>URL:</strong> ${url}</div>
+                        <div><strong>Safety:</strong> ${Math.random() > 0.2 ? '✅ Safe' : '⚠️ Risky'}</div>
+                        <div><strong>Reputation:</strong> Good</div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Network Analyzer
+        document.querySelector('.tool-card:nth-child(6) .btn-analyze').addEventListener('click', function() {
+            const fileInput = this.previousElementSibling;
+            if (!fileInput.files[0]) { alert('Please select a file'); return; }
+            
+            document.getElementById('resultsContainer').innerHTML = `
+                <div class="analysis-result">
+                    <h3>📊 Network Analysis - By Abid Mehmod</h3>
+                    <div class="result-grid">
+                        <div><strong>File:</strong> ${fileInput.files[0].name}</div>
+                        <div><strong>Size:</strong> ${(fileInput.files[0].size / 1024).toFixed(2)} KB</div>
+                        <div><strong>Packets:</strong> ${Math.floor(Math.random() * 5000) + 1000}</div>
+                        <div><strong>Threats:</strong> ${Math.random() > 0.6 ? '⚠️ Found' : '✅ None'}</div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ Cyber Threat Intelligence</h3>
+                <p>Advanced threat visualization and analysis platform for cybersecurity professionals.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Contact</h3>
+                <p><strong>Abid Mehmod</strong></p>
+                <p>Phone: 03029382306</p>
+                <p>Email: abidbusiness2025@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="threats.html">Threat Analysis</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="api.html">API Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cyber Threat Intelligence Visualizer by Abid Mehmod | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts - Cyber Threat Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo">
+                <h1>🛡️ Cyber Threat Intelligence</h1>
+                <p>Real-time global threat visualization</p>
+            </div>
+
+        </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Dashboard</a></li>
+                <li><a href="threats.html">🚨 Threats</a></li>
+                <li><a href="analytics.html">📊 Analytics</a></li>
+                <li><a href="reports.html">📋 Reports</a></li>
+                <li><a href="alerts.html" class="active">🔔 Alerts</a></li>
+                <li><a href="intelligence.html">🧠 Intelligence</a></li>
+                <li><a href="tools.html">🔧 Tools</a></li>
+                <li><a href="education.html">📚 Education</a></li>
+                <li><a href="api.html">🔌 API</a></li>
+                <li><a href="settings.html">⚙️ Settings</a></li>
+                <li><a href="about.html">ℹ️ About</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>🔔 Security Alerts Center by Abid Mehmod</h1>
+            <p>Real-time security alerts and notifications monitored by Abid Mehmod</p>
+        </section>
+
+        <section class="alert-summary">
+            <div class="alert-stats">
+                <div class="alert-stat critical">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Critical</span>
+                </div>
+                <div class="alert-stat high">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">High</span>
+                </div>
+                <div class="alert-stat medium">
+                    <span class="stat-number">28</span>
+                    <span class="stat-label">Medium</span>
+                </div>
+                <div class="alert-stat low">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Low</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="alerts-list">
+            <div class="alert-item critical">
+                <div class="alert-icon">🚨</div>
+                <div class="alert-content">
+                    <h3>Critical: APT Group Activity Detected</h3>
+                    <p>Advanced persistent threat targeting financial sector infrastructure</p>
+                    <span class="alert-time">2 minutes ago</span>
+                </div>
+                <div class="alert-actions">
+                    <button class="btn-investigate">🔍 Investigate</button>
+                    <button class="btn-dismiss">✖️ Dismiss</button>
+                </div>
+            </div>
+
+            <div class="alert-item high">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <h3>High: Ransomware Campaign Active</h3>
+                    <p>New ransomware variant spreading through email attachments</p>
+                    <span class="alert-time">15 minutes ago</span>
+                </div>
+                <div class="alert-actions">
+                    <button class="btn-investigate">🔍 Investigate</button>
+                    <button class="btn-dismiss">✖️ Dismiss</button>
+                </div>
+            </div>
+
+            <div class="alert-item medium">
+                <div class="alert-icon">🔶</div>
+                <div class="alert-content">
+                    <h3>Medium: Suspicious Network Activity</h3>
+                    <p>Unusual traffic patterns detected from multiple IP addresses</p>
+                    <span class="alert-time">1 hour ago</span>
+                </div>
+                <div class="alert-actions">
+                    <button class="btn-investigate">🔍 Investigate</button>
+                    <button class="btn-dismiss">✖️ Dismiss</button>
+                </div>
+            </div>
+
+            <div class="alert-item low">
+                <div class="alert-icon">🔵</div>
+                <div class="alert-content">
+                    <h3>Low: Port Scan Detected</h3>
+                    <p>Automated port scanning activity from known bot network</p>
+                    <span class="alert-time">3 hours ago</span>
+                </div>
+                <div class="alert-actions">
+                    <button class="btn-investigate">🔍 Investigate</button>
+                    <button class="btn-dismiss">✖️ Dismiss</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ Cyber Threat Intelligence</h3>
+                <p>Advanced threat visualization and analysis platform for cybersecurity professionals.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Contact</h3>
+                <p><strong>Abid Mehmod</strong></p>
+                <p>Phone: 03029382306</p>
+                <p>Email: abidbusiness2025@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="threats.html">Threat Analysis</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="api.html">API Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cyber Threat Intelligence Visualizer by Abid Mehmod | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.btn-investigate').forEach(btn => {
+            btn.onclick = () => {
+                alert('Opening investigation panel - Abid Mehmod Security System');
+                btn.closest('.alert-item').style.opacity = '0.7';
+            };
+        });
+        
+        document.querySelectorAll('.btn-dismiss').forEach(btn => {
+            btn.onclick = () => {
+                if(confirm('Dismiss this alert? - Abid Mehmod Alert System')) {
+                    btn.closest('.alert-item').style.display = 'none';
+                }
+            };
+        });
+    </script>
+</body>
+</html>

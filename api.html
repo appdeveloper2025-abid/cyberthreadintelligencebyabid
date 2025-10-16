@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Cyber Threat Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo">
+                <h1>🛡️ Cyber Threat Intelligence Visualizer</h1>
+                <p>Real-time visualization of global cyber threats</p>
+            </div>
+            <div class="contact-info">
+                <p><strong>Abid Mehmod</strong></p>
+                <p>📞 03029382306</p>
+                <p>📧 abidbusiness2025@gmail.com</p>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Dashboard</a></li>
+                <li><a href="threats.html">🚨 Threats</a></li>
+                <li><a href="analytics.html">📊 Analytics</a></li>
+                <li><a href="reports.html">📋 Reports</a></li>
+                <li><a href="alerts.html">🔔 Alerts</a></li>
+                <li><a href="intelligence.html">🧠 Intelligence</a></li>
+                <li><a href="tools.html">🔧 Tools</a></li>
+                <li><a href="education.html">📚 Education</a></li>
+                <li><a href="api.html" class="active">🔌 API</a></li>
+                <li><a href="settings.html">⚙️ Settings</a></li>
+                <li><a href="about.html">ℹ️ About</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>🔌 API Documentation</h1>
+            <p>Integrate threat intelligence data into your applications</p>
+        </section>
+
+        <section class="api-overview">
+            <div class="api-info">
+                <h2>🚀 Getting Started</h2>
+                <p>Our REST API provides access to real-time threat intelligence data. All endpoints require authentication via API key.</p>
+                <div class="api-key-section">
+                    <h3>🔑 API Key</h3>
+                    <div class="key-input">
+                        <input type="text" value="sk-1234567890abcdef" readonly>
+                        <button class="btn-copy">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="api-endpoints">
+            <h2>📡 Available Endpoints</h2>
+            
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="url">/api/v1/threats</span>
+                </div>
+                <p>Retrieve current threat data with optional filtering</p>
+                <div class="code-block">
+                    <pre><code>curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.threatintel.com/v1/threats</code></pre>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <span class="method get">GET</span>
+                    <span class="url">/api/v1/threats/{id}</span>
+                </div>
+                <p>Get detailed information about a specific threat</p>
+                <div class="code-block">
+                    <pre><code>curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.threatintel.com/v1/threats/12345</code></pre>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="endpoint-header">
+                    <span class="method post">POST</span>
+                    <span class="url">/api/v1/ioc/lookup</span>
+                </div>
+                <p>Lookup indicators of compromise (IOCs)</p>
+                <div class="code-block">
+                    <pre><code>curl -X POST \
+     -H "Authorization: Bearer YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"indicator": "192.168.1.1", "type": "ip"}' \
+     https://api.threatintel.com/v1/ioc/lookup</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="response-examples">
+            <h2>📄 Response Examples</h2>
+            <div class="example-card">
+                <h3>Threat Data Response</h3>
+                <div class="code-block">
+                    <pre><code>{
+  "status": "success",
+  "data": {
+    "threats": [
+      {
+        "id": "12345",
+        "type": "malware",
+        "severity": "high",
+        "source_ip": "192.168.1.100",
+        "country": "Russia",
+        "timestamp": "2024-12-15T10:30:00Z",
+        "description": "Trojan detected"
+      }
+    ],
+    "total": 1,
+    "page": 1
+  }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="rate-limits">
+            <h2>⚡ Rate Limits</h2>
+            <div class="limits-table">
+                <div class="limit-row">
+                    <span>Free Tier</span>
+                    <span>100 requests/hour</span>
+                </div>
+                <div class="limit-row">
+                    <span>Pro Tier</span>
+                    <span>1,000 requests/hour</span>
+                </div>
+                <div class="limit-row">
+                    <span>Enterprise</span>
+                    <span>Unlimited</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ Cyber Threat Intelligence</h3>
+                <p>Advanced threat visualization and analysis platform for cybersecurity professionals.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Contact</h3>
+                <p><strong>Abid Mehmod</strong></p>
+                <p>Phone: 03029382306</p>
+                <p>Email: abidbusiness2025@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="threats.html">Threat Analysis</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="api.html">API Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cyber Threat Intelligence Visualizer by Abid Mehmod | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

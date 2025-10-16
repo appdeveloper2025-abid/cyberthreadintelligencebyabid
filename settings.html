@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Cyber Threat Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <div class="logo">
+                <h1>🛡️ Cyber Threat Intelligence Visualizer</h1>
+                <p>Real-time visualization of global cyber threats</p>
+            </div>
+            <div class="contact-info">
+                <p><strong>Abid Mehmod</strong></p>
+                <p>📞 03029382306</p>
+                <p>📧 abidbusiness2025@gmail.com</p>
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="index.html">🏠 Dashboard</a></li>
+                <li><a href="threats.html">🚨 Threats</a></li>
+                <li><a href="analytics.html">📊 Analytics</a></li>
+                <li><a href="reports.html">📋 Reports</a></li>
+                <li><a href="alerts.html">🔔 Alerts</a></li>
+                <li><a href="intelligence.html">🧠 Intelligence</a></li>
+                <li><a href="tools.html">🔧 Tools</a></li>
+                <li><a href="education.html">📚 Education</a></li>
+                <li><a href="api.html">🔌 API</a></li>
+                <li><a href="settings.html" class="active">⚙️ Settings</a></li>
+                <li><a href="about.html">ℹ️ About</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>⚙️ System Settings</h1>
+            <p>Configure your threat intelligence platform</p>
+        </section>
+
+        <section class="settings-container">
+            <div class="settings-sidebar">
+                <ul class="settings-nav">
+                    <li><a href="#general" class="active">🔧 General</a></li>
+                    <li><a href="#alerts">🔔 Alerts</a></li>
+                    <li><a href="#api">🔌 API Keys</a></li>
+                    <li><a href="#display">🎨 Display</a></li>
+                    <li><a href="#security">🔒 Security</a></li>
+                </ul>
+            </div>
+
+            <div class="settings-content">
+                <div class="settings-section active" id="general">
+                    <h2>🔧 General Settings</h2>
+                    <div class="setting-item">
+                        <label>Auto-refresh interval</label>
+                        <select>
+                            <option>30 seconds</option>
+                            <option selected>1 minute</option>
+                            <option>5 minutes</option>
+                            <option>10 minutes</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Default threat severity filter</label>
+                        <select>
+                            <option selected>All</option>
+                            <option>Critical only</option>
+                            <option>High and Critical</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Maximum threats to display</label>
+                        <input type="number" value="100" min="10" max="1000">
+                    </div>
+                </div>
+
+                <div class="settings-section" id="alerts">
+                    <h2>🔔 Alert Settings</h2>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Enable sound alerts
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Email notifications for critical threats
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>Email address for notifications</label>
+                        <input type="email" value="abidbusiness2025@gmail.com">
+                    </div>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            SMS alerts for critical threats
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section" id="api">
+                    <h2>🔌 API Configuration</h2>
+                    <div class="setting-item">
+                        <label>AbuseIPDB API Key</label>
+                        <input type="password" placeholder="Enter API key...">
+                    </div>
+                    <div class="setting-item">
+                        <label>AlienVault OTX API Key</label>
+                        <input type="password" placeholder="Enter API key...">
+                    </div>
+                    <div class="setting-item">
+                        <label>VirusTotal API Key</label>
+                        <input type="password" placeholder="Enter API key...">
+                    </div>
+                    <button class="btn-test">🧪 Test Connections</button>
+                </div>
+
+                <div class="settings-section" id="display">
+                    <h2>🎨 Display Settings</h2>
+                    <div class="setting-item">
+                        <label>Theme</label>
+                        <select>
+                            <option selected>Dark</option>
+                            <option>Light</option>
+                            <option>Auto</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Map style</label>
+                        <select>
+                            <option selected>Dark</option>
+                            <option>Satellite</option>
+                            <option>Street</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Show threat animations
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section" id="security">
+                    <h2>🔒 Security Settings</h2>
+                    <div class="setting-item">
+                        <label>Session timeout</label>
+                        <select>
+                            <option>15 minutes</option>
+                            <option selected>30 minutes</option>
+                            <option>1 hour</option>
+                            <option>4 hours</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Enable two-factor authentication
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Log all API requests
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="settings-actions">
+            <button class="btn-save">💾 Save Settings</button>
+            <button class="btn-reset">🔄 Reset to Defaults</button>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛡️ Cyber Threat Intelligence</h3>
+                <p>Advanced threat visualization and analysis platform for cybersecurity professionals.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Contact</h3>
+                <p><strong>Abid Mehmod</strong></p>
+                <p>Phone: 03029382306</p>
+                <p>Email: abidbusiness2025@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="threats.html">Threat Analysis</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="api.html">API Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cyber Threat Intelligence Visualizer by Abid Mehmod | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
